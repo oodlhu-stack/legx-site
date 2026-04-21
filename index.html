@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>合同会社Legx | 仙台の軽貨物配送</title>
+  <style>
+    :root {
+      --navy: #0f172a;
+      --blue: #1d4ed8;
+      --sky: #e0f2fe;
+      --text: #1f2937;
+      --muted: #6b7280;
+      --line: #e5e7eb;
+      --white: #ffffff;
+      --accent: #f59e0b;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif;
+      color: var(--text);
+      background: #f8fafc;
+      line-height: 1.7;
+    }
+    a { color: inherit; text-decoration: none; }
+    .container {
+      width: min(1120px, calc(100% - 32px));
+      margin: 0 auto;
+    }
+    header {
+      background: linear-gradient(135deg, var(--navy), var(--blue));
+      color: var(--white);
+      position: relative;
+      overflow: hidden;
+    }
+    header::after {
+      content: "";
+      position: absolute;
+      right: -120px;
+      top: -60px;
+      width: 360px;
+      height: 360px;
+      background: radial-gradient(circle, rgba(255,255,255,0.16), transparent 70%);
+    }
+    .topbar {
+      padding: 18px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      position: relative;
+      z-index: 1;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .logo-mark {
+      width: 48px;
+      height: 48px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, #ffffff, #bfdbfe);
+      color: var(--blue);
+      display: grid;
+      place-items: center;
+      font-weight: 900;
+      font-size: 22px;
+    }
+    .logo-text {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+    .logo-text strong {
+      font-size: 24px;
+      letter-spacing: 0.04em;
+    }
+    .hero {
+      padding: 64px 0 72px;
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 28px;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+    }
+    .hero h1 {
+      font-size: clamp(30px, 5vw, 52px);
+      line-height: 1.2;
+      margin: 0 0 18px;
+    }
+    .hero p {
+      margin: 0 0 24px;
+      color: rgba(255,255,255,0.9);
+      font-size: 17px;
+    }
+    .cta-row {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .btn {
+      display: inline-block;
+      padding: 14px 20px;
+      border-radius: 14px;
+      font-weight: 700;
+    }
+    .btn.primary {
+      background: #fff;
+      color: var(--blue);
+    }
+    .btn.secondary {
+      border: 1px solid rgba(255,255,255,0.35);
+      color: #fff;
+    }
+    .hero-card {
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.14);
+      border-radius: 20px;
+      padding: 24px;
+      backdrop-filter: blur(4px);
+    }
+    .hero-card h2 {
+      margin: 0 0 14px;
+      font-size: 20px;
+    }
+    .hero-card ul {
+      margin: 0;
+      padding-left: 18px;
+      color: rgba(255,255,255,0.92);
+    }
+    section {
+      padding: 68px 0;
+    }
+    .section-title {
+      font-size: 32px;
+      margin: 0 0 12px;
+    }
+    .section-lead {
+      margin: 0 0 28px;
+      color: var(--muted);
+    }
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+    .card {
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 22px;
+      box-shadow: 0 8px 22px rgba(15, 23, 42, 0.04);
+    }
+    .card h3 {
+      margin: 0 0 10px;
+      font-size: 20px;
+    }
+    .photo-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+    .photo-card {
+      border-radius: 20px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      background: var(--white);
+    }
+    .photo-visual {
+      height: 220px;
+      display: grid;
+      place-items: center;
+      font-size: 74px;
+      color: white;
+    }
+    .photo-1 { background: linear-gradient(135deg, #0f172a, #1d4ed8); }
+    .photo-2 { background: linear-gradient(135deg, #1d4ed8, #38bdf8); }
+    .photo-3 { background: linear-gradient(135deg, #1e293b, #475569); }
+    .photo-body {
+      padding: 18px;
+    }
+    .flow {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+    .step {
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 20px;
+    }
+    .step .num {
+      display: inline-flex;
+      width: 34px;
+      height: 34px;
+      border-radius: 999px;
+      align-items: center;
+      justify-content: center;
+      background: var(--sky);
+      color: var(--blue);
+      font-weight: 800;
+      margin-bottom: 12px;
+    }
+    .company {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: var(--white);
+      border-radius: 18px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+    }
+    th, td {
+      padding: 14px 16px;
+      border-bottom: 1px solid var(--line);
+      text-align: left;
+      vertical-align: top;
+    }
+    th {
+      width: 160px;
+      background: #f8fafc;
+    }
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+    .form-ui {
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 22px;
+    }
+    .field {
+      margin-bottom: 14px;
+    }
+    .field label {
+      display: block;
+      font-size: 14px;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+    .field input,
+    .field textarea,
+    .field select {
+      width: 100%;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 12px 14px;
+      font: inherit;
+      background: #fff;
+    }
+    .field textarea {
+      min-height: 130px;
+      resize: vertical;
+    }
+    .submit-btn {
+      width: 100%;
+      border: none;
+      border-radius: 14px;
+      padding: 14px 16px;
+      background: linear-gradient(90deg, var(--blue), var(--accent));
+      color: white;
+      font-weight: 800;
+      font-size: 16px;
+    }
+    .notice {
+      margin-top: 16px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+    footer {
+      background: var(--navy);
+      color: rgba(255,255,255,0.88);
+      padding: 28px 0 40px;
+    }
+    @media (max-width: 900px) {
+      .hero,
+      .grid-3,
+      .photo-row,
+      .flow,
+      .company,
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+      th {
+        width: 120px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <div class="topbar">
+        <div class="brand">
+          <div class="logo-mark">L</div>
+          <div class="logo-text">
+            <strong>合同会社Legx</strong>
+            <span>Light Cargo Delivery Partner</span>
+          </div>
+        </div>
+        <div>宮城県仙台市の軽貨物配送</div>
+      </div>
+      <div class="hero">
+        <div>
+          <h1>仙台を拠点に、<br>軽貨物配送をもっと確実に。</h1>
+          <p>
+            合同会社Legxは、宮城県仙台市を拠点とした軽貨物配送事業者向けの想定ホームページです。
+            企業配送, スポット便, 定期便など、日々の物流を支えるパートナーとして、迅速かつ丁寧な対応を目指します。
+          </p>
+          <div class="cta-row">
+            <a class="btn primary" href="#contact">お問い合わせ</a>
+            <a class="btn secondary" href="#company">会社概要</a>
+          </div>
+        </div>
+        <div class="hero-card">
+          <h2>対応イメージ</h2>
+          <ul>
+            <li>企業向け軽貨物配送</li>
+            <li>スポット便, 緊急配送</li>
+            <li>定期便, ルート配送</li>
+            <li>仙台市内, 宮城県内中心の対応</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section>
+    <div class="container">
+      <h2 class="section-title">サービス</h2>
+      <p class="section-lead">軽貨物事業者として想定される主要サービスを、見やすく整理した構成です。</p>
+      <div class="grid-3">
+        <div class="card">
+          <h3>スポット便</h3>
+          <p>急ぎの荷物や単発の配送依頼にも柔軟に対応。必要な時だけ頼める配送サービスです。</p>
+        </div>
+        <div class="card">
+          <h3>定期便</h3>
+          <p>日次, 週次, 定期ルートなど、継続的な配送業務を安定してサポートします。</p>
+        </div>
+        <div class="card">
+          <h3>企業配送</h3>
+          <p>法人向けの書類, 小口荷物, 業務用配送など、ビジネスシーンに合わせた配送を想定しています。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="background:#f8fafc;">
+    <div class="container">
+      <h2 class="section-title">Legxのイメージ</h2>
+      <p class="section-lead">写真の代わりに、軽貨物事業らしいイメージビジュアルを入れています。実写真に差し替えやすい構成です。</p>
+      <div class="photo-row">
+        <div class="photo-card">
+          <div class="photo-visual photo-1">🚚</div>
+          <div class="photo-body">
+            <h3>迅速な配送</h3>
+            <p>軽貨物ならではの小回りを活かし、必要なタイミングで柔軟に対応する想定です。</p>
+          </div>
+        </div>
+        <div class="photo-card">
+          <div class="photo-visual photo-2">📦</div>
+          <div class="photo-body">
+            <h3>丁寧な荷扱い</h3>
+            <p>大切な荷物を確実に届けることを重視した見せ方にしています。</p>
+          </div>
+        </div>
+        <div class="photo-card">
+          <div class="photo-visual photo-3">🗺️</div>
+          <div class="photo-body">
+            <h3>地域密着</h3>
+            <p>仙台市内, 宮城県内を中心とした地元密着型の印象を伝えやすい構成です。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <h2 class="section-title">ご依頼の流れ</h2>
+      <p class="section-lead">初めての方にもわかりやすいよう、問い合わせから配送までの流れを簡潔に整理できます。</p>
+      <div class="flow">
+        <div class="step"><div class="num">1</div><strong>お問い合わせ</strong><p>配送内容, 荷物量, 希望日時などを確認。</p></div>
+        <div class="step"><div class="num">2</div><strong>内容確認</strong><p>配送条件や対応エリアを確認し、最適な形をご提案。</p></div>
+        <div class="step"><div class="num">3</div><strong>集荷・配送</strong><p>ご指定の場所で集荷し、丁寧に配送を進めます。</p></div>
+        <div class="step"><div class="num">4</div><strong>完了報告</strong><p>必要に応じて配送完了報告や継続提案も行えます。</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="company" style="background:#f8fafc;">
+    <div class="container">
+      <h2 class="section-title">会社概要</h2>
+      <p class="section-lead">公開情報をもとにした基本情報です。未公開の項目は、確認後に追記する前提で構成しています。</p>
+      <div class="company">
+        <table>
+          <tr><th>会社名</th><td>合同会社Legx</td></tr>
+          <tr><th>フリガナ</th><td>レグス</td></tr>
+          <tr><th>法人番号</th><td>7370003005663</td></tr>
+          <tr><th>所在地</th><td>〒982-0811 宮城県仙台市太白区ひより台48-2 YKハイツA棟</td></tr>
+          <tr><th>法人番号指定日</th><td>2022年4月21日</td></tr>
+        </table>
+        <table>
+          <tr><th>事業内容</th><td>軽貨物配送, スポット便, 定期便, 企業配送 などを想定</td></tr>
+          <tr><th>対応エリア</th><td>仙台市内, 宮城県内を中心に想定</td></tr>
+          <tr><th>代表者</th><td>未掲載</td></tr>
+          <tr><th>電話番号</th><td>未掲載</td></tr>
+          <tr><th>URL</th><td>未掲載</td></tr>
+        </table>
+      </div>
+      <p class="notice">
+        ※ 現時点では公開情報に限りがあるため、代表者名, 電話番号, メールアドレス, 料金, 対応エリア詳細などは確認後の追記をおすすめします。
+      </p>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="container">
+      <h2 class="section-title">お問い合わせ</h2>
+      <p class="section-lead">実際のフォーム送信機能は未接続ですが、問い合わせフォーム風のUIまで入れています。</p>
+      <div class="contact-grid">
+        <div class="card">
+          <h3>お問い合わせ先の掲載例</h3>
+          <p>スポット配送, 定期配送, 法人配送など、お気軽にご相談ください。</p>
+          <p>電話番号: ここに追加</p>
+          <p>メール: ここに追加</p>
+          <p>受付時間: ここに追加</p>
+        </div>
+        <div class="form-ui">
+          <div class="field">
+            <label>お名前</label>
+            <input type="text" placeholder="例: 山田 太郎">
+          </div>
+          <div class="field">
+            <label>会社名</label>
+            <input type="text" placeholder="例: 株式会社サンプル">
+          </div>
+          <div class="field">
+            <label>お問い合わせ種別</label>
+            <select>
+              <option>スポット便</option>
+              <option>定期便</option>
+              <option>企業配送</option>
+              <option>その他</option>
+            </select>
+          </div>
+          <div class="field">
+            <label>お問い合わせ内容</label>
+            <textarea placeholder="配送内容, 荷物量, ご希望日時などをご記入ください。"></textarea>
+          </div>
+          <button class="submit-btn">送信する（UI例）</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div>合同会社Legx</div>
+      <div style="margin-top:8px;">宮城県仙台市太白区ひより台48-2 YKハイツA棟</div>
+    </div>
+  </footer>
+</body>
+</html>
